@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Meihualu&#39;s Blog">
 <meta property="og:description" content="一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-05-06T10:29:30.496Z">
+<meta property="og:updated_time" content="2017-09-19T08:11:49.361Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式爬虫学习笔记-虚拟环境Virtualenv搭建">
 <meta name="twitter:description" content="一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。">
@@ -314,8 +314,8 @@
           
         <p>一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。<br><a id="more"></a></p>
 <h2 id="为什么要选择用Virtualenv"><a href="#为什么要选择用Virtualenv" class="headerlink" title="为什么要选择用Virtualenv"></a>为什么要选择用Virtualenv</h2><p>因为Python有2和3的区别，用Virtualenv可以使得开发环境隔离开不受到影响。暂时还没体验过这个的好处，但是我就是想把这个给配置好。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>安装Virtualenv，首先<br>‘’’<br>pip install virtualenv<br>‘’’<br>即可，可以使用一些比较快的镜像源，比如豆瓣源。不过貌似速度没多少区别（233）。<br>安装好了之后，可以自行定一个目录来搭建环境。<br>比如选择，把工程放在 E:/test/ 下，使用python2<br>就在cmd下进到这个目录,然后<br>‘’’<br>virtualenv -p <strong><em> ###<br>‘’’<br>其中 </em></strong> 是你Python要用的版本（C:\Python27\python.exe）</p>
-<h3 id="是你取的虚拟环境所在的目录名字"><a href="#是你取的虚拟环境所在的目录名字" class="headerlink" title="是你取的虚拟环境所在的目录名字"></a>是你取的虚拟环境所在的目录名字</h3><hr>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>安装Virtualenv，首先<br>‘’’<br>pip install virtualenv<br>‘’’<br>即可，可以使用一些比较快的镜像源，比如豆瓣源。不过貌似速度没多少区别（233）。<br>安装好了之后，可以自行定一个目录来搭建环境。<br>比如选择，把工程放在 E:/test/ 下，使用python2<br>就在cmd下进到这个目录,然后<br>‘’’<br>virtualenv -p <strong><em> xxx<br>‘’’<br>其中 </em></strong> 是你Python要用的版本（C:\Python27\python.exe）<br>xxx 是你取的虚拟环境所在的目录名字 </p>
+<hr>
 <p>好了下面说下问题，按照这样的步骤配置好后,可以在刚刚建立的目录中找到一个Scripts的文件里面应该有一个activate.bat。运行这个就能进入虚拟环境，但是<br>我木有，类似Stackoverflow上这个<a href="http://stackoverflow.com/questions/33010458/cannot-create-virtual-environment-with-setuptools-pip-wheel-failed-with-error-c" target="_blank" rel="external">问题</a></p>
 <p>解决方法也比较简单，就是你的python的安装路径中不要有空格和中文出现….</p>
 <hr>
@@ -331,7 +331,7 @@
         <p><span>本文标题:</span><a href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
         <p><span>发布时间:</span>2017-05-06, 18:13:42</p>
-        <p><span>最后更新:</span>2017-05-06, 18:29:30</p>
+        <p><span>最后更新:</span>2017-09-19, 16:11:49</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/06/spider-1/" title="分布式爬虫学习笔记-虚拟环境Virtualenv搭建">http://meihualu233.github.io/2017/05/06/spider-1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2017/05/06/spider-1/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -367,7 +367,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要选择用Virtualenv"><span class="toc-number">1.</span> <span class="toc-text">为什么要选择用Virtualenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#是你取的虚拟环境所在的目录名字"><span class="toc-number">2.1.</span> <span class="toc-text">是你取的虚拟环境所在的目录名字</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要选择用Virtualenv"><span class="toc-number">1.</span> <span class="toc-text">为什么要选择用Virtualenv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">2.</span> <span class="toc-text">遇到的问题</span></a></li></ol>
         
     </div>
     <style>
@@ -448,7 +448,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/19/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/acm/">2017 ACM-ICPC World Finals</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/gs-life-5/">研究生活-5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/openssl/">openssl相关的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/cdp/">实验室灾备项目CDP部分学习工作记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/gs-life-4/">研究生生活-4</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/python-learning/">实验室培训之编码问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/python-smtp/">Python学习之SMTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/python-1/">Python解题报告合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/heartvoice/">心语</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/gs-life-3/">研究生生活-3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/travel-changsha/">16年国庆长沙玩耍记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/gs-life-2/">虚拟现实报告资料整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/gs-life/">研究生生活-1</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/19/blog-change/">blog-change</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/acm/">2017 ACM-ICPC World Finals</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/gs-life-5/">研究生活-5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/openssl/">openssl相关的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/cdp/">实验室灾备项目CDP部分学习工作记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/gs-life-4/">研究生生活-4</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/python-learning/">实验室培训之编码问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/python-smtp/">Python学习之SMTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/python-1/">Python解题报告合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/heartvoice/">心语</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/gs-life-3/">研究生生活-3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/travel-changsha/">16年国庆长沙玩耍记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/gs-life-2/">虚拟现实报告资料整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/gs-life/">研究生生活-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/18/hello-world/">Hello World</a></li></ul>
 
 
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meihualu233.github.io/"/>
-  <updated>2016-09-21T02:31:54.371Z</updated>
+  <updated>2017-09-19T08:14:01.823Z</updated>
   <id>http://meihualu233.github.io/</id>
   
   <author>
@@ -17,26 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://meihualu233.github.io/2017/09/19/hello-world/"/>
-    <id>http://meihualu233.github.io/2017/09/19/hello-world/</id>
-    <published>2017-09-19T03:51:03.649Z</published>
-    <updated>2016-09-21T02:31:54.371Z</updated>
+    <title></title>
+    <link href="http://meihualu233.github.io/2017/09/19/blog-change/"/>
+    <id>http://meihualu233.github.io/2017/09/19/blog-change/</id>
+    <published>2017-09-19T06:05:47.934Z</published>
+    <updated>2017-09-19T08:14:01.823Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a><br>懒惰的我，就不把这个hexo的宣传页给去了</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<hr><p>title: blog_change<br>date: 2017-09-19 14:05:47<br>categories:</p><ul><li>日常<br>tags:</li><li>博客迁移</li></ul><hr><p>周末的时候给电脑配了个固态硬盘，然后把系统放到了固态上，所以原来系统上的一些东西就都乱了。原来搭好的这个博客也就需要进行一次迁移。</p><a id="more"></a><h2 id="将博客从原来的系统迁移到新的系统"><a href="#将博客从原来的系统迁移到新的系统" class="headerlink" title="将博客从原来的系统迁移到新的系统"></a>将博客从原来的系统迁移到新的系统</h2><p>1.从Git官网上下载Git，然后需要生成新的密钥。具体做法就是，<br>‘’’<br>ssh-keygen -t rsa -C “youremail@example.com”<br>‘’’<br>生成的密钥文件默认在 C:|用户|系统用户|.ssh中，将其中id_rsa.pub的公钥导入到git上即可。<br><img src="http://oduatnee6.bkt.clouddn.com/key.png" alt="生成的密钥位置"><br><img src="http://oduatnee6.bkt.clouddn.com/ssh.png" alt="导入新的key"></p><p>2.下载安装Node.js<br>3.打开git bash 安装Hexo<br>‘’’<br>npm install hexo-cli -g<br>‘’’</p><p>4.下面就是重点了（特别感谢知乎上的<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">skycrown</a>，我百度到的方法）<br>拷贝原来博客目录下的 _config.yml ,theme/ ,source/,scaffolds/,package.json到新的目录，其他的内容就可以不要了。然后在拷贝的目录里,执行。<br>‘’’<br>npm install<br>‘’’<br>注：可能是我下载git bash有问题或者我的环境有问题，我直接在新的博客路径中右键打开git bash，npm 命令会报错 （bash: npm: command not found）<br>。在桌面邮件打开的git bash之后cd到博客路径下npm install就可以直接使用，如果有人出现相同的问题可以参考下。<br><img src="http://oduatnee6.bkt.clouddn.com/npm_error.png" alt="错误"></p><p>注注：在输入完npm install 会出现这样的警告 this package is no longer maintained。不用慌张等一会就好了。<br><img src="http://oduatnee6.bkt.clouddn.com/npm_warm.png" alt="警告"></p><p>5.装好后，直接hexo g | hexo d 就好了，和以前一样操作就好了</p><p>6.但是发现了一个问题。我原来的博客置顶的内容错误了。原因是Hexo只支持按照时间排序，所以我以前修改过..\node_modules\hexo-generator-index\lib\generator.js中的内容，再次修改一下置顶功能就好了。<br>附一个我的generator.js增加置顶的配置.<br>‘’’<br>‘use strict’;</p><p>var pagination = require(‘hexo-pagination’);</p><p>module.exports = function(locals) {<br>  var config = this.config;<br>  var posts = locals.posts.sort(config.index_generator.order_by);</p><p>  posts.data = posts.data.sort(function(a, b) {<br>        if(a.top &amp;&amp; b.top) { // 两篇文章top都有定义<br>            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排<br>            else return b.top - a.top; // 否则按照top值降序排<br>        }<br>        else if(a.top &amp;&amp; !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）<br>            return -1;<br>        }<br>        else if(!a.top &amp;&amp; b.top) {<br>            return 1;<br>        }<br>        else return b.date - a.date; // 都没定义按照文章日期降序排<br>    });<br>  var paginationDir = config.pagination_dir || ‘page’;<br>  var path = config.index_generator.path || ‘’;</p><p>  return pagination(path, posts, {<br>    perPage: config.index_generator.per_page,<br>    layout: [‘index’, ‘archive’],<br>    format: paginationDir + ‘/%d/‘,<br>    data: {<br>      __index: true<br>    }<br>  });<br>};</p><p>‘’’</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+      &lt;hr&gt;
+&lt;p&gt;title: blog_change&lt;br&gt;date: 2017-09-19 14:05:47&lt;br&gt;categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;日常&lt;br&gt;tags:&lt;/li&gt;
+&lt;li&gt;博客迁移&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;周末的时候给电脑配了个固态硬盘，然后把系统放到了固态上，所以原来系统上的一些东西就都乱了。原来搭好的这个博客也就需要进行一次迁移。&lt;/p&gt;
     
     </summary>
     
-      <category term="随笔" scheme="http://meihualu233.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="日常" scheme="http://meihualu233.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-      <category term="随笔" scheme="http://meihualu233.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -71,9 +72,9 @@
     <link href="http://meihualu233.github.io/2017/05/06/spider-1/"/>
     <id>http://meihualu233.github.io/2017/05/06/spider-1/</id>
     <published>2017-05-06T10:13:42.000Z</published>
-    <updated>2017-05-06T10:29:30.496Z</updated>
+    <updated>2017-09-19T08:11:49.361Z</updated>
     
-    <content type="html"><![CDATA[<p>一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。<br><a id="more"></a></p><h2 id="为什么要选择用Virtualenv"><a href="#为什么要选择用Virtualenv" class="headerlink" title="为什么要选择用Virtualenv"></a>为什么要选择用Virtualenv</h2><p>因为Python有2和3的区别，用Virtualenv可以使得开发环境隔离开不受到影响。暂时还没体验过这个的好处，但是我就是想把这个给配置好。</p><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>安装Virtualenv，首先<br>‘’’<br>pip install virtualenv<br>‘’’<br>即可，可以使用一些比较快的镜像源，比如豆瓣源。不过貌似速度没多少区别（233）。<br>安装好了之后，可以自行定一个目录来搭建环境。<br>比如选择，把工程放在 E:/test/ 下，使用python2<br>就在cmd下进到这个目录,然后<br>‘’’<br>virtualenv -p <strong><em> ###<br>‘’’<br>其中 </em></strong> 是你Python要用的版本（C:\Python27\python.exe）</p><h3 id="是你取的虚拟环境所在的目录名字"><a href="#是你取的虚拟环境所在的目录名字" class="headerlink" title="是你取的虚拟环境所在的目录名字"></a>是你取的虚拟环境所在的目录名字</h3><hr><p>好了下面说下问题，按照这样的步骤配置好后,可以在刚刚建立的目录中找到一个Scripts的文件里面应该有一个activate.bat。运行这个就能进入虚拟环境，但是<br>我木有，类似Stackoverflow上这个<a href="http://stackoverflow.com/questions/33010458/cannot-create-virtual-environment-with-setuptools-pip-wheel-failed-with-error-c" target="_blank" rel="external">问题</a></p><p>解决方法也比较简单，就是你的python的安装路径中不要有空格和中文出现….</p><hr><p>END.</p>]]></content>
+    <content type="html"><![CDATA[<p>一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。<br><a id="more"></a></p><h2 id="为什么要选择用Virtualenv"><a href="#为什么要选择用Virtualenv" class="headerlink" title="为什么要选择用Virtualenv"></a>为什么要选择用Virtualenv</h2><p>因为Python有2和3的区别，用Virtualenv可以使得开发环境隔离开不受到影响。暂时还没体验过这个的好处，但是我就是想把这个给配置好。</p><h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>安装Virtualenv，首先<br>‘’’<br>pip install virtualenv<br>‘’’<br>即可，可以使用一些比较快的镜像源，比如豆瓣源。不过貌似速度没多少区别（233）。<br>安装好了之后，可以自行定一个目录来搭建环境。<br>比如选择，把工程放在 E:/test/ 下，使用python2<br>就在cmd下进到这个目录,然后<br>‘’’<br>virtualenv -p <strong><em> xxx<br>‘’’<br>其中 </em></strong> 是你Python要用的版本（C:\Python27\python.exe）<br>xxx 是你取的虚拟环境所在的目录名字 </p><hr><p>好了下面说下问题，按照这样的步骤配置好后,可以在刚刚建立的目录中找到一个Scripts的文件里面应该有一个activate.bat。运行这个就能进入虚拟环境，但是<br>我木有，类似Stackoverflow上这个<a href="http://stackoverflow.com/questions/33010458/cannot-create-virtual-environment-with-setuptools-pip-wheel-failed-with-error-c" target="_blank" rel="external">问题</a></p><p>解决方法也比较简单，就是你的python的安装路径中不要有空格和中文出现….</p><hr><p>END.</p>]]></content>
     
     <summary type="html">
     
@@ -405,6 +406,30 @@
       <category term="随笔" scheme="http://meihualu233.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
       <category term="研究生生活" scheme="http://meihualu233.github.io/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://meihualu233.github.io/2016/08/18/hello-world/"/>
+    <id>http://meihualu233.github.io/2016/08/18/hello-world/</id>
+    <published>2016-08-18T14:45:00.000Z</published>
+    <updated>2017-09-19T06:00:28.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a><br>懒惰的我，就不把这个hexo的宣传页给去了</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;br&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://meihualu233.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="日常" scheme="http://meihualu233.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+      <category term="随笔" scheme="http://meihualu233.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
