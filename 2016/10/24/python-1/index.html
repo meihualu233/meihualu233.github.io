@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="meihualu233" />
+
+
+
+<meta name="description" content="最近开始学Python，做点cf上的题目来熟悉下语法。挖个坑记录下~">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python解题报告合集">
+<meta property="og:url" content="http://meihualu233.github.io/2016/10/24/python-1/index.html">
+<meta property="og:site_name" content="Meihualu&#39;s Blog">
+<meta property="og:description" content="最近开始学Python，做点cf上的题目来熟悉下语法。挖个坑记录下~">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-05-26T01:42:02.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python解题报告合集">
+<meta name="twitter:description" content="最近开始学Python，做点cf上的题目来熟悉下语法。挖个坑记录下~">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Meihualu&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python解题报告合集 | Meihualu&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/face.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">meihualu233</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/meihualu233" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa bilibili" href="http://space.bilibili.com/9855612/#!/index" title="bilibili"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMTP/">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv搭建/">Virtualenv搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习生活/">学习生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/寒假/">寒假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心语/">心语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/玩耍/">玩耍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研究生生活/">研究生生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码/">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">茫茫人生，好像荒野</div>
+                </section>
+                
+            </div>
+        </div>
+        <div class="xm">
+            <img src="/img/xm.png">
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">meihualu233</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/face.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">meihualu233</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/meihualu233" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa bilibili" target="_blank" href="http://space.bilibili.com/9855612/#!/index" title="bilibili"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-python-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/24/python-1/" class="article-date">
+      <time datetime="2016-10-24T10:50:34.000Z" itemprop="datePublished">2016-10-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python解题报告合集
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/学习/">学习</a><a class="article-category-link" href="/categories/学习/解题报告/">解题报告</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>最近开始学Python，做点cf上的题目来熟悉下语法。挖个坑记录下~</p>
+<a id="more"></a>
+<h2 id="Codeforces-Round-377-Div-2"><a href="#Codeforces-Round-377-Div-2" class="headerlink" title="Codeforces Round #377 (Div. 2)"></a>Codeforces Round #377 (Div. 2)</h2><h3 id="A-Buy-a-Shovel"><a href="#A-Buy-a-Shovel" class="headerlink" title="A. Buy a Shovel"></a>A. Buy a Shovel</h3><p>题目大概意思是给你任意多的10块的和一个r(range(1,10))块，问我买多少k块的东西可以正好不用找钱。</p>
+<p>很明显，无论r是多少k*10 也就是买10个正好不用找钱，所以最后的结果一定小于10。直接从1遍历就好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">k,r=map(int,raw_input().split())</div><div class="line">a=1</div><div class="line">while True:</div><div class="line">	if (a*k) %10==0 or (a*k-r) % 10==0:</div><div class="line">		break;</div><div class="line">	else:</div><div class="line">		a=a+1</div><div class="line">print a</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="B-Cormen-—-The-Best-Friend-Of-a-Man"><a href="#B-Cormen-—-The-Best-Friend-Of-a-Man" class="headerlink" title="B. Cormen — The Best Friend Of a Man"></a>B. Cormen — The Best Friend Of a Man</h3><p>题目大意是给你n个数，连续的2个的和要大于等于k。问需要增加多少和新序列。<br>直接贪心，从第二个数开始让a[i]+a[i-1]=k，然后扫到结尾就好。主要是学习了Python下的输出方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">n,k=map(int,raw_input().split())</div><div class="line">ans=0</div><div class="line">x=map(int,raw_input().split())</div><div class="line">for i in range(1,n):</div><div class="line">	if x[i]+x[i-1] &gt;=k:</div><div class="line">		continue</div><div class="line">	else:</div><div class="line">		t=x[i]</div><div class="line">		x[i]=k-x[i-1]</div><div class="line">		ans+=x[i]-t</div><div class="line">	#print i,ans</div><div class="line">print ans</div><div class="line">for i in range(n):</div><div class="line">	print &quot;%d &quot; % x[i],</div><div class="line">#print &apos; &apos;.join(map(str,x))</div></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="C-Sanatorium"><a href="#C-Sanatorium" class="headerlink" title="C. Sanatorium"></a>C. Sanatorium</h3><p>题目大意是一个人到一个地方玩吃了a顿早饭,b顿中饭,c顿晚饭，但是他忘记了某些顿，他只要在这个地方就会去吃饭，直到他离开。<br>我比较蠢，直接模拟了所有的情况。很长（Python 没有else if,有点醉）。但是其实这题很简单因为吃得饭肯定会连续，找到max(a,b,c)-1就解决了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">#这是我的愚蠢代码</div><div class="line">while True:</div><div class="line">	a,b,c=map(int,raw_input().split())</div><div class="line">	t=min(a,b,c)</div><div class="line">	res=0</div><div class="line">	a=a-t</div><div class="line">	b=b-t</div><div class="line">	c=c-t</div><div class="line">	if a==0 and b==c:</div><div class="line">		if b==0:</div><div class="line">			res=0</div><div class="line">		else:</div><div class="line">			res+=b-1</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if b==0 and a==c:</div><div class="line">		if a==0:</div><div class="line">			res=0</div><div class="line">		else:</div><div class="line">			res+=a-1</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if c==0 and a==b:</div><div class="line">		if a==0:</div><div class="line">			res=0</div><div class="line">		else:</div><div class="line">			res+=a-1</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if a==0 and b==0:</div><div class="line">		res+=2*(c-1)</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if a==0 and c==0:</div><div class="line">		res+=2*(b-1)</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if b==0 and c==0:</div><div class="line">		res+=2*(a-1)</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if a==0:</div><div class="line">		res+=min(b,c)+(max(b,c)-min(b,c)-1)*2</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if b==0:</div><div class="line">		res+=min(a,c)+(max(a,c)-min(a,c)-1)*2</div><div class="line">		print res</div><div class="line">		break</div><div class="line">	if c==0:</div><div class="line">		res+=min(a,b)+(max(a,b)-min(a,b)-1)*2</div><div class="line">		print res</div><div class="line">		break</div></pre></td></tr></table></figure></p>
+<p>聪明的写法。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a=map(int,raw_input().split())</div><div class="line">a.sort()</div><div class="line">print max(a[2]-a[1]-1,0)+max(a[2]-a[0]-1,0)</div></pre></td></tr></table></figure></p>
+<h3 id="D-Exams"><a href="#D-Exams" class="headerlink" title="D. Exams"></a>D. Exams</h3><p>题目大意是n天，m场考试，n天中每天要么有考试要么没有，每场考试需要x天复习。问最少多少天能考完。<br>若存在解，则一定满足：<br>1.记录下来每场考试考完的时间，最终的答案就在这个数列里。<br>2.最终的解一定不会小于，不同考试最快考完的那天的最大值 和 复习天数+m的 总和。<br>所以有了1我们可以二分搜，有了2就可以判断.<br>python里面的二分，烦在数组越界<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">n,m=map(int,raw_input().split())</div><div class="line">x=map(int,raw_input().split())</div><div class="line">y=map(int,raw_input().split())</div><div class="line">#list initial</div><div class="line">mapp=[0 for i in range(m+1)]</div><div class="line">res=[] #binery search this for answer</div><div class="line">tneed=0 #represent the sum of all subject&apos;s minday to pass</div><div class="line">need=m #min day to pass if exists</div><div class="line"></div><div class="line">for i in range(n):</div><div class="line">	if x[i]!=0:</div><div class="line">		#print &apos;x[i]:&apos;,x[i]</div><div class="line">		res.append(i+1)</div><div class="line">		if mapp[x[i]]!=0:</div><div class="line">			continue</div><div class="line">		else:</div><div class="line">			mapp[x[i]]=i+1</div><div class="line">			tneed=max(tneed,(i+1))</div><div class="line">for i in range(m):</div><div class="line">	need+=y[i]</div><div class="line"></div><div class="line">need=max(need,tneed)</div><div class="line">res.sort()</div><div class="line"></div><div class="line">l=0</div><div class="line">r=len(res)</div><div class="line">mid=0</div><div class="line">if r==0:</div><div class="line">	print -1</div><div class="line">else:</div><div class="line">	while l&lt;=r:</div><div class="line">		mid=(l+r)/2</div><div class="line">		#print &apos;mid:&apos;,mid</div><div class="line">		if mid &gt;=len(res):</div><div class="line">			break</div><div class="line">		if res[mid]==need:</div><div class="line">			break</div><div class="line">		else:</div><div class="line">			if res[mid]&gt;need:</div><div class="line">				r=mid-1</div><div class="line">			else:</div><div class="line">				l=mid+1</div><div class="line">	if mid&gt;=len(res):</div><div class="line">		print -1</div><div class="line">	else:</div><div class="line">		if res[mid]&gt;=need:</div><div class="line">			print res[mid]</div><div class="line">		else:</div><div class="line">			print -1</div></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="Codeforces-Round-376-Div-2"><a href="#Codeforces-Round-376-Div-2" class="headerlink" title="Codeforces Round #376 (Div. 2)"></a>Codeforces Round #376 (Div. 2)</h2><h3 id="A-Night-at-the-Museum"><a href="#A-Night-at-the-Museum" class="headerlink" title="A. Night at the Museum"></a>A. Night at the Museum</h3><p>题目很傻瓜就是给你一个26个字母组成的圆盘，和一个str。像打电话一样的拨这个盘子最少的步数。但是用python有两个问题：<br>1.输入的字母怎么存到一个list里，直接a=raw_input()就可以了。。<br>2.python里头怎么用asc码<br>两个函数，strip()用来切字符串，ord(char)用来得到char的asc<br>拓展一下，chr(),unichr(),ord()三个函数分别求对应asc码的字母，对应unicode的内容。<br>看别人的代码加了个strip()，这个函数有点意思，可以用来去除s.strip(char)，s首尾有char的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">a=raw_input().strip()</div><div class="line">res=0</div><div class="line">t=&apos;a&apos;</div><div class="line">print a</div><div class="line">for i in range(len(a)):</div><div class="line">	a1=ord(a[i])-ord(t)</div><div class="line">	a2=ord(t)-ord(a[i])</div><div class="line">	if a1&lt;0:</div><div class="line">		a1+=26</div><div class="line">	if a2&lt;0:</div><div class="line">		a2+=26</div><div class="line">	res+= min(a1 , a2 )</div><div class="line">	t=a[i]</div><div class="line">print res</div></pre></td></tr></table></figure></p>
+<h3 id="B-Coupons-and-Discounts"><a href="#B-Coupons-and-Discounts" class="headerlink" title="B. Coupons and Discounts"></a>B. Coupons and Discounts</h3><p>n个数，可以相邻的两列都减1，或者一列减2，可以重复无数次操作。问能否将n列变成0.<br>直接从做往右扫过去，如果这列i 为偶数个，则ok，若为奇数，则i+1列 -1。如果第i列小于0则不可能。<br>证明这个贪心：如果第i列为奇数不采用和下一列减1的方式，那么它将永远不会为0所以算法成立.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">n=int(raw_input())</div><div class="line">a=map(int,raw_input().split())</div><div class="line">flag=0</div><div class="line">a.append(0)</div><div class="line">for i in range(n):</div><div class="line">	if a[i]&lt;0:</div><div class="line">		flag=1</div><div class="line">		break</div><div class="line">	if a[i]%2==0:</div><div class="line">		continue</div><div class="line">	a[i+1]-=1</div><div class="line">if a[n]==-1:</div><div class="line">	flag=1</div><div class="line">if flag==1:</div><div class="line">	print &apos;NO&apos;</div><div class="line">else:</div><div class="line">	print &apos;YES&apos;</div></pre></td></tr></table></figure></p>
+<h2 id="Codeforces-Round-378-Div-2"><a href="#Codeforces-Round-378-Div-2" class="headerlink" title="Codeforces Round #378 (Div. 2)"></a>Codeforces Round #378 (Div. 2)</h2><p>这场比赛我做了，雪崩啊！</p>
+<h3 id="A-Grasshopper-And-the-String"><a href="#A-Grasshopper-And-the-String" class="headerlink" title="A. Grasshopper And the String"></a>A. Grasshopper And the String</h3><p>题意是一个由26个大写字母组成的序列，只能踩AEIOUY这几个字母，求最大的跨度。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">a=raw_input()</div><div class="line">b=[&apos;A&apos;,&apos;E&apos;,&apos;I&apos;,&apos;O&apos;,&apos;U&apos;,&apos;Y&apos;]</div><div class="line"></div><div class="line">len=int(len(a))</div><div class="line">##print len</div><div class="line">t=-1</div><div class="line">res=0</div><div class="line">for i in range(len):</div><div class="line">	if a[i] in b:</div><div class="line">		res=max(res,i-t)</div><div class="line">		t=i</div><div class="line">res=max(len-t,res)</div><div class="line">print res</div></pre></td></tr></table></figure></p>
+<h3 id="B-Parade"><a href="#B-Parade" class="headerlink" title="B. Parade"></a>B. Parade</h3><p>n组分为l列,r列的只能交换一行，l列的数字总和减去r列的数字总和绝对值的最大值是多少。<br>数据量不打n最大为10^5所以模拟即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">n=int(raw_input())</div><div class="line">t1=[]</div><div class="line">t2=[]</div><div class="line">sum1=0</div><div class="line">sum2=0</div><div class="line">for i in range(n):</div><div class="line">	a,b=map(int,raw_input().split())</div><div class="line">	t1.append(a)</div><div class="line">	t2.append(b)</div><div class="line">	sum1+=a</div><div class="line">	sum2+=b</div><div class="line">tmp=abs(sum1-sum2)</div><div class="line">res=0</div><div class="line">for i in range(n):</div><div class="line">	t= abs((sum1-t1[i]+t2[i]) - (sum2-t2[i]+t1[i]))</div><div class="line">	if t &gt; tmp:</div><div class="line">		res=i+1</div><div class="line">		tmp=t</div><div class="line">print res</div></pre></td></tr></table></figure></p>
+<h2 id="Canada-Cup-2016"><a href="#Canada-Cup-2016" class="headerlink" title="Canada Cup 2016"></a>Canada Cup 2016</h2><h3 id="A-Jumping-Ball"><a href="#A-Jumping-Ball" class="headerlink" title="A. Jumping Ball"></a>A. Jumping Ball</h3><p>题目大意是’&lt;’代表板子左高右低，’&gt;’代表相反，一些这样的板子拼起来，小球从那些板子开始放下，球会滚出去。<br>注意到&gt;…..&lt;这个区间内无论怎样球都滑不出去，所以转换成找最大的这个区间，从左边开始找第一个&gt;,右边开始找第一个&lt;。<br>做这道题学会了python里倒叙遍历数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">n=int(raw_input())</div><div class="line">str=raw_input()</div><div class="line"></div><div class="line">##print str[0],&apos;$$$&apos;,str[1]</div><div class="line">left=n</div><div class="line">right=-1</div><div class="line">for i in range(n):</div><div class="line">	if str[i]==&apos;&gt;&apos;:</div><div class="line">		left=i;</div><div class="line">		break;</div><div class="line">for i in range(n)[::-1]:</div><div class="line">	if str[i]==&apos;&lt;&apos;:</div><div class="line">		right=i;</div><div class="line">		break;</div><div class="line">t=right-left+1</div><div class="line">if t&lt;0:</div><div class="line">	print n</div><div class="line">else:</div><div class="line">	print n-t</div></pre></td></tr></table></figure></p>
+<h3 id="B-Food-on-the-Plane"><a href="#B-Food-on-the-Plane" class="headerlink" title="B. Food on the Plane"></a>B. Food on the Plane</h3><p>题目大意，很简单啦，看懂题目就好了。这题目主要学习了12333f这样前面是数字后面是一个字符的输入python如何处理。然后就是python里头没有map，貌似只有个万能的list。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">ns=raw_input()</div><div class="line">n=ns[:len(ns)-1] ##</div><div class="line">s=ns[-1:]</div><div class="line">n=int(n)</div><div class="line">##print s,&apos;$$$&apos;,n</div><div class="line">t=n/4</div><div class="line">mod=n%4</div><div class="line">if mod==0:</div><div class="line">	t=t-1</div><div class="line">mp=&#123;</div><div class="line">	&apos;f&apos;:1,</div><div class="line">	&apos;e&apos;:2,</div><div class="line">	&apos;d&apos;:3,</div><div class="line">	&apos;a&apos;:4,</div><div class="line">	&apos;b&apos;:5,</div><div class="line">	&apos;c&apos;:6,</div><div class="line">&#125;</div><div class="line">res=t*16+mp[s]</div><div class="line">if mod==0 or mod==2:</div><div class="line">	res=res+7</div><div class="line">print res</div></pre></td></tr></table></figure></p>
+<p>距离上次做题已经过去了好久咯，下面的代码用py3</p>
+<h2 id="Codeforces-Round-379-Div-2"><a href="#Codeforces-Round-379-Div-2" class="headerlink" title="Codeforces Round #379 (Div. 2)"></a>Codeforces Round #379 (Div. 2)</h2><h3 id="A-Anton-and-Danik"><a href="#A-Anton-and-Danik" class="headerlink" title="A. Anton and Danik"></a>A. Anton and Danik</h3><p>题目大意是给你一个字符串由AD组成比较AD的个数<br>这是我写的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#coding utf-8</div><div class="line">n=int(input())</div><div class="line">s=input()</div><div class="line">s1=0</div><div class="line">s2=0</div><div class="line">for i in range(n):</div><div class="line">	if s[i]==&apos;A&apos;:</div><div class="line">		s1+=1</div><div class="line">	else:</div><div class="line">		s2+=1</div><div class="line">if s1==s2:</div><div class="line">	print(&quot;Friendship&quot;)</div><div class="line">else:</div><div class="line">	if s1&gt;s2:</div><div class="line">		print(&quot;Anton&quot;)</div><div class="line">	else:</div><div class="line">		print(&quot;Danik&quot;)</div></pre></td></tr></table></figure></p>
+<p>对比了一下别人的写法，有了新的发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># coding: utf-8</div><div class="line"></div><div class="line">n = input()</div><div class="line">s = input()</div><div class="line">if s.count(&apos;A&apos;) &gt; s.count(&apos;D&apos;):</div><div class="line">    print(&quot;Anton&quot;)</div><div class="line">elif s.count(&apos;A&apos;) &lt; s.count(&apos;D&apos;):</div><div class="line">    print(&apos;Danik&apos;)</div><div class="line">else:</div><div class="line">    print(&quot;Friendship&quot;)</div><div class="line"></div><div class="line"></div><div class="line">n, s = input(), str(input())</div><div class="line">if s.count(&apos;A&apos;) == s.count(&apos;D&apos;):</div><div class="line">    print(&apos;Friendship&apos;)</div><div class="line">else:</div><div class="line">    print([&quot;Anton&quot;, &quot;Danik&quot;][s.count(&apos;A&apos;)&lt;s.count(&apos;D&apos;)])</div></pre></td></tr></table></figure></p>
+<h2 id="B-Anton-and-Digits"><a href="#B-Anton-and-Digits" class="headerlink" title="B. Anton and Digits"></a>B. Anton and Digits</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#coding utf-8</div><div class="line">k2,k3,k5,k6=map(int,input().split())</div><div class="line">k=min(k2,k5,k6)</div><div class="line">l=min(k3,k2-k)</div><div class="line">print(k*256+l*32)</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/10/24/python-1/">Python解题报告合集</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
+        <p><span>发布时间:</span>2016-10-24, 18:50:34</p>
+        <p><span>最后更新:</span>2017-05-26, 09:42:02</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/10/24/python-1/" title="Python解题报告合集">http://meihualu233.github.io/2016/10/24/python-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2016/10/24/python-1/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/10/26/python-smtp/">
+                    Python学习之SMTP
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/10/18/heartvoice/">
+                    心语
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Codeforces-Round-377-Div-2"><span class="toc-number">1.</span> <span class="toc-text">Codeforces Round #377 (Div. 2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Buy-a-Shovel"><span class="toc-number">1.1.</span> <span class="toc-text">A. Buy a Shovel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Cormen-—-The-Best-Friend-Of-a-Man"><span class="toc-number">1.2.</span> <span class="toc-text">B. Cormen — The Best Friend Of a Man</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Sanatorium"><span class="toc-number">1.3.</span> <span class="toc-text">C. Sanatorium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-Exams"><span class="toc-number">1.4.</span> <span class="toc-text">D. Exams</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codeforces-Round-376-Div-2"><span class="toc-number">2.</span> <span class="toc-text">Codeforces Round #376 (Div. 2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Night-at-the-Museum"><span class="toc-number">2.1.</span> <span class="toc-text">A. Night at the Museum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Coupons-and-Discounts"><span class="toc-number">2.2.</span> <span class="toc-text">B. Coupons and Discounts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codeforces-Round-378-Div-2"><span class="toc-number">3.</span> <span class="toc-text">Codeforces Round #378 (Div. 2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Grasshopper-And-the-String"><span class="toc-number">3.1.</span> <span class="toc-text">A. Grasshopper And the String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Parade"><span class="toc-number">3.2.</span> <span class="toc-text">B. Parade</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Canada-Cup-2016"><span class="toc-number">4.</span> <span class="toc-text">Canada Cup 2016</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Jumping-Ball"><span class="toc-number">4.1.</span> <span class="toc-text">A. Jumping Ball</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Food-on-the-Plane"><span class="toc-number">4.2.</span> <span class="toc-text">B. Food on the Plane</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codeforces-Round-379-Div-2"><span class="toc-number">5.</span> <span class="toc-text">Codeforces Round #379 (Div. 2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Anton-and-Danik"><span class="toc-number">5.1.</span> <span class="toc-text">A. Anton and Danik</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Anton-and-Digits"><span class="toc-number">6.</span> <span class="toc-text">B. Anton and Digits</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python解题报告合集　| Meihualu's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+</div>
+
+
+
+
+
+
+
+    
+        <div class="duoshuo" id="comments">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+		var cloudTieConfig = {
+  			url: document.location.href, 
+  			sourceId: "",
+  			productKey: "542eda49e3484702924144d8bd657a52",
+  			target: "cloud-tie-wrapper"
+		};
+		var yunManualLoad = true;
+		Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/26/python-smtp/" title="上一篇: Python学习之SMTP">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/10/18/heartvoice/" title="下一篇: 心语">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/19/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/acm/">2017 ACM-ICPC World Finals</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/gs-life-5/">研究生活-5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/openssl/">openssl相关的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/cdp/">实验室灾备项目CDP部分学习工作记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/gs-life-4/">研究生生活-4</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/python-learning/">实验室培训之编码问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/python-smtp/">Python学习之SMTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/python-1/">Python解题报告合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/heartvoice/">心语</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/gs-life-3/">研究生生活-3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/travel-changsha/">16年国庆长沙玩耍记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/gs-life-2/">虚拟现实报告资料整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/gs-life/">研究生生活-1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 meihualu233< 蜀ICP备17019529号-1 >
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 11;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

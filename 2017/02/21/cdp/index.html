@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="meihualu233" />
+
+
+
+<meta name="description" content="2017.2.20号布置的任务，3个礼拜要熟悉windows端的CDP的代码挖坑开始每天记录一下自己对现在项目组工作的日志。">
+<meta name="keywords" content="学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验室灾备项目CDP部分学习工作记录">
+<meta property="og:url" content="http://meihualu233.github.io/2017/02/21/cdp/index.html">
+<meta property="og:site_name" content="Meihualu&#39;s Blog">
+<meta property="og:description" content="2017.2.20号布置的任务，3个礼拜要熟悉windows端的CDP的代码挖坑开始每天记录一下自己对现在项目组工作的日志。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-03-27T03:42:59.156Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实验室灾备项目CDP部分学习工作记录">
+<meta name="twitter:description" content="2017.2.20号布置的任务，3个礼拜要熟悉windows端的CDP的代码挖坑开始每天记录一下自己对现在项目组工作的日志。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Meihualu&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>实验室灾备项目CDP部分学习工作记录 | Meihualu&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/face.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">meihualu233</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/meihualu233" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa bilibili" href="http://space.bilibili.com/9855612/#!/index" title="bilibili"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMTP/">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv搭建/">Virtualenv搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习生活/">学习生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/寒假/">寒假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心语/">心语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/玩耍/">玩耍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研究生生活/">研究生生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码/">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">茫茫人生，好像荒野</div>
+                </section>
+                
+            </div>
+        </div>
+        <div class="xm">
+            <img src="/img/xm.png">
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">meihualu233</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/face.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">meihualu233</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/meihualu233" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa bilibili" target="_blank" href="http://space.bilibili.com/9855612/#!/index" title="bilibili"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-cdp" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/cdp/" class="article-date">
+      <time datetime="2017-02-21T08:37:13.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实验室灾备项目CDP部分学习工作记录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/灾备/">灾备</a><a class="article-category-link" href="/categories/灾备/CDP/">CDP</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>2017.2.20号布置的任务，3个礼拜要熟悉windows端的CDP的代码<br>挖坑开始每天记录一下自己对现在项目组工作的日志。</p>
+<a id="more"></a>
+<h2 id="2-20"><a href="#2-20" class="headerlink" title="2.20"></a>2.20</h2><p>计哥布置了我的任务，3月底实验室的灾备项目貌似是要上线，目前还有几个发现的bug。目前发现的两个BUG：<br>1.差异备份的时候，通过md5值比较数据块是否相同然后恢复，效率不如直接复制来的快。<br>2.海量存储时候，缓存写在硬盘直接读出在内存传输，数据可能会丢失。<br>下午，熟悉了下文档，觉得还是无从下手。</p>
+<h2 id="2-21"><a href="#2-21" class="headerlink" title="2.21"></a>2.21</h2><p>看了邓健师兄的CDP设计文档，又一次熟悉了各个模块的功能，但是我觉得还是需要知道每个模块对应的代码，然而并不能从代码中发现多少端倪。</p>
+<p>Q：生产服务器代码的入口在哪里。从哪里出发看。</p>
+<p>1.windows文件系统中，卷是如何被分为几个部分进行的备份，对应的代码是什么样子的？<br>和linux有什么区别？（还不了解windows的文件系统）</p>
+<p>2.当一个卷备份操作开始的时候<br>流程如下：<br>首先  海量缓存到本地 ，之后是什么流程传递到灾备机上的（代码哪里体现）<br>接着 在服务端是如何处理这些东东的（暂时不用知道）</p>
+<p>灾备机 这里有 一个 镜像卷 日志卷<br>镜像卷负责当生产卷的镜子<br>日志卷 里 存的是被覆盖掉的老数据</p>
+<p>3.恢复数据的时候，应该是先建立 生产服务器和灾备机的连接，然后获得要恢复的目标时间点，<br>通过虚拟卷重定向数据（流程到底是啥样的，对应的代码是什么）</p>
+<p>在数据同步之前先对生产卷系统打一个快照<br>（windows下通过Snapshot快照模块调用VSS工具实现备份数据卷快照，<br>linux通过LVM管理工具实现逻辑卷的快照，<br>注意：对于linux下磁盘分区由于没有快照方法我们采用直接读取磁盘分区）<br>//<br>//这里在代码上是怎么体现的，在server端 哪里判断生产服务器是windows还是linux的<br>//</p>
+<p>总结一下：发现自己需要先去了解一下windows的文件系统，今天不打算去研究代码。先搞清楚基本的数据结构。</p>
+<h2 id="2-22"><a href="#2-22" class="headerlink" title="2.22"></a>2.22</h2><p>今天有一点点进展，虽然代码上没有啥突破。<br>1，导入了一下windows端的工程，上午+下午给自己电脑搞上了openssl的库<br>2，目前正在装svn，一会应该可以将winsnaplib.h的问题解决<br>3，今天又一次回顾了一下cdp备份的流程，基本上来说对于这个系统工作的方式比较熟悉，具体的细节有待去研究。</p>
+<p>客户端代码里用到了很多openssl的函数，应该是建立生产机和灾备机连接是用到的内容。</p>
+<p>接下来需要解决的几个方向：<br>1，一会，先跑一下代码看看<br>2，啃代码了，梳理一下各个函数和模块的关系<br>3，学习一下openssl里的内容<br>4，看一下师兄的论文</p>
+<hr>
+<p>我上午用vs导入了客户端的工程，编译了一下主要有两个问题。<br>1.openssl要自己配置一下，这个我自己弄好了<br>2.#include “WinSnapLib.h” 这个头文件貌似要一个 WinSnapLib.lib 依赖，不知道这是啥，该怎么弄</p>
+<h2 id="2-23"><a href="#2-23" class="headerlink" title="2.23"></a>2.23</h2><p>今天从main入手看了下代码，感觉上几个最为重要的代码如下：</p>
+<p>#include “Logger.h”                     写日志的吧。</p>
+<p>#include “io_common.h”                  读写磁盘内容相关</p>
+<p>#include “ProducerAndConsumerQueue.h”</p>
+<p>#include “getVolSnapHandle.h”</p>
+<p>#include “network_exp.h”</p>
+<p>#include “CdpRecovery.h”</p>
+<p>//这个应该是核心<br>CdpRecovery 用到了 {</p>
+<p>#include “packet.h”</p>
+<p>#include “io_common.h”</p>
+<p>#include  “network_exp.h”</p>
+<p>#include “CdpRecovery.h”</p>
+<p>#include “Logger.h”<br>}</p>
+<p>记录一下各个模块用的主要函数、数据结构<br>io_common{</p>
+<p>#include “ntddvol.h”</p>
+<p>#include “io_common.h”</p>
+<p>#include “BootFormat.h”   —-这个里面的数据结构 主要是NTFS和FAT32</p>
+<p>#include “Logger.h”<br>}</p>
+<p>过了一遍Logger和io_common</p>
+<h2 id="2-24"><a href="#2-24" class="headerlink" title="2.24"></a>2.24</h2><p>network  、 network_exp  这两个的区别<br>个人感觉 network_exp 负责传输过程中出现问题后的重传<br>network 负责传输 </p>
+<p>这三个是干啥的<br>int Respond_To_Controller(SSL <em>ssl,char </em>answer);<br>int Send_CTL_To_RS(char <em>RS_ip,int RS_port,char </em>buf,int len,int <em>err,int</em> task_id=NULL);<br>int Send_Request_To_RS(char <em>RS_ip,int RS_port,char </em>send_buf,int send_len,char <em>rev_buf,int rev_len,int </em>err);</p>
+<p>在CdpRecovery.cpp里全还原和增量还原的代码是一样的。<br>接下来，先研究一下全还原代码的实现。</p>
+<h2 id="2-27"><a href="#2-27" class="headerlink" title="2.27"></a>2.27</h2><p>fullrecovery 流程：int FullRecovery::init()<br>1.ProducerAndConsumerQueue初始化<br>2.数据准备 data_rebulid<br>3.初始化写入卷的句柄和套接字结构体 建立网络连接 init_member_data<br>4.发送恢复请求 send_recovery_request （感觉有问题 :-D )</p>
+<ol>
+<li>creatThread send_packet 建立线程开始发送包</li>
+<li>creatThread write_packet 写线程</li>
+</ol>
+<p>疑问：</p>
+<hr>
+<p><strong><strong>这是结构体是啥<strong>*</strong></strong></strong></p>
+<hr>
+<p>//初始化同步恢复进度结构体<br>    memset(&amp;(this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process),0x00,sizeof(SYNC_RECV_PROCESS));<br>    this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process.task_id = this-&gt;ptr_recov_taskinfo-&gt;taskid;<br>    this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process.volume_index = this-&gt;ptr_recov_taskinfo-&gt;current_vol_num;<br>    strcpy_s(this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process.volume_name,MAX_VOLUME_NAME,this-&gt;ptr_recov_taskinfo-&gt;target_volume[this-&gt;ptr_recov_taskinfo-&gt;current_vol_num]);<br>    this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process.volume_size = this-&gt;ptr_recov_taskinfo-&gt;vols_size[this-&gt;ptr_recov_taskinfo-&gt;current_vol_num];<br>    this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process.offset=this-&gt;ptr_recov_taskinfo-&gt;current_vol_offset;<br>    this-&gt;ptr_recov_taskinfo-&gt;sync_recv_process.recovey_mode=this-&gt;ptr_recov_taskinfo-&gt;tasktype;</p>
+<hr>
+<p>CdpRecovery.cpp 252行 这里有发送请求到RS么？</p>
+<p>typedef struct _syncRecovTaskinfo //这是啥结构体，做啥的 ？ 回复任务的ID、种类、模式？</p>
+<p>DiffSyncProcess和SyncProcess在做啥？</p>
+<p>看完了</p>
+<p>#include “Logger.h”                     写日志的吧。</p>
+<p>#include “io_common.h”                  读写磁盘内容相关</p>
+<p>#include “ProducerAndConsumerQueue.h”   消息队列加锁</p>
+<p>#include “getVolSnapHandle.h”        打快照的</p>
+<p>#include “network_exp.h”        通信传输数据</p>
+<p>#include “CdpRecovery.h”        全恢复和差异恢复</p>
+<p>这6个部分的代码之后我发现，还需搞懂的问题：</p>
+<p>1，生产服务器是在什么时候将文件内容写入海量缓存的？<br>2，快照在哪里使用？</p>
+<p>上面6个部分完全没有这方面的信息。<br>DrcSender 在干嘛。。如果说它是在传输文件数据，那么network_exp在干嘛。。负责安全传输？<br>DiffSyncProcess是在做什么<br>MassBuffer 应该是海量缓存的实现代码<br>以上应该就是核心代码的内容了。。还有好多没理解的问题。</p>
+<h2 id="2-28"><a href="#2-28" class="headerlink" title="2.28"></a>2.28</h2><p>梳理一下 恢复的流程：<br>在恢复的代码里有3个大类：RecoveryTask、FullRecovery和DiffRecovery<br>RecoveryTask类中写的是全恢复和增量恢复中公用的一些功能函数（恢复前的数据准备函数，句柄套接字）</p>
+<p>当客户端，发起一个恢复请求的时候，先建立一个RecoveyTask的线程，然后判断是要全恢复还是增量恢复。</p>
+<p>同步过程:</p>
+<p>同步的过程里有用到快照</p>
+<p>同步 恢复 的代码基本上了解了<br>怎么截获读写的？ 备份是怎样做的</p>
+<p>DRGlobalInfo.xml<br>DR  RS</p>
+<p>drc_common pt_task</p>
+<p>request_function.cpp 778行加的这段代码有什么意义？</p>
+<hr>
+<p>系统和卷操作<br>1，在最高层，应用程序要知道用户环境中存在那些逻辑驱动器（GetLogicalDrives）<br>2，判断每个驱动器的类型 （getDriveType）<br>3，得到卷的特定信息（getVolumeInformation）</p>
+<hr>
+<p>下午的时候，亮哥给我们讲了一下windows端的代码，主要从main函数入手，一开始就启了两个线程serverthread和startsender，serverthread负责第一次和灾备的同步，它打一个当前生产服务器卷的快照，同步到灾备端。第二个线程startsender启动之后又会启3个线程，分别是读取、打包、传输。<br>在生产端每一次数据变化会被截获，写入到海量缓存之中。之后通过startsender线程传输至灾备端。</p>
+<hr>
+<p>之后要从这几个线程入手开始研究具体的代码，将所有的结构体记录下来有助于梳理代码。</p>
+<h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h2><p>今天状态不是很好，进展比较慢。从main函数的两个线程入手（startsender和therverthread），还研究了一下各个结构体之间的关系。代码很复杂明天接着看。</p>
+<p>DevControl 控制驱动<br>全局的 DevControl* ioct1</p>
+<p>NSFD_FBLK_READ_INFO fri = { 0 };//结构体可以这样初始化么？ lzn</p>
+<p>startsender -&gt; initsender-&gt;{</p>
+<p>initMassBuffer<br>initDriver(初始化驱动相关信息 1.传递海量缓存文件块给驱动 2.发送模块与驱动之间的流量信息共享内存)<br>initMemory<br>InitExecuteRes<br>initGlobal<br>}</p>
+<p>initDriver-&gt;SetDrvBufferBlock（获取第一个过滤驱动设备对象的句柄）</p>
+<h2 id="3-2"><a href="#3-2" class="headerlink" title="3.2"></a>3.2</h2><p>startsender -&gt; initsender-&gt;{</p>
+<p>initMassBuffer<br>initDriver(初始化驱动相关信息 1.传递海量缓存文件块给驱动 2.发送模块与驱动之间的流量信息共享内存)<br>initMemory<br>InitExecuteRes<br>initGlobal<br>}</p>
+<p>initDriver-&gt;SetDrvBufferBlock（获取第一个过滤驱动设备对象的句柄）<br>initMemory  初始化了rbQueue //TODO: there always warning 6011, but we don’t know how to fix it.<br>initExecuteRes{<br>    threadReader -&gt;(readEvent)-&gt; ReadNextRecord(读任务列表) 简单理解为将记录打包<br>        -&gt; IncReader-&gt;IncSender<br>}</p>
+<p>看到目前的状态，感觉需要去先学习一下多线程，以前没怎么接触过windows的多线程。</p>
+<p>研究msdn的多线程<br><a href="https://msdn.microsoft.com/zh-cn/library/aa909196.aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/aa909196.aspx</a><br>博客<br><a href="http://blog.csdn.net/morewindows/article/details/7392749" target="_blank" rel="external">http://blog.csdn.net/morewindows/article/details/7392749</a> 这个博客写的不错</p>
+<p>多线程的互斥和同步</p>
+<p>关键段（临界区）可以用于线程间的互斥，但不可以用于同步</p>
+<p>事件（Event）可以实现线程间的同步</p>
+<h2 id="3-3"><a href="#3-3" class="headerlink" title="3.3"></a>3.3</h2><p>学习windows多线程中。<br>在项目的代码里面使用了Mutex和信号量有点难以理解。<br>先记录一下，线程同步互斥机制的几个关键内容——关键段、事件、互斥量、信号量</p>
+<h2 id="3-6"><a href="#3-6" class="headerlink" title="3.6"></a>3.6</h2><p>在windows端海量缓存的实现中，代码里用到了 文件映射。<br>海量缓存是一个大文件<br>传统文件访问方式是，首先用open西戎调用打开文件，然后使用read、write以及lseek等调用进行顺序I/O<br>这种方式非常低效<br>海量缓存的方法则：<br>通过一定的机制将页面映射到进程的地址空间中，首先通过简单的产生某些内存管理数据结构完成映射的创建，<br>当进程访问页面时产生一个缺页终端，内核将页面读入内存并且封信页表指向该页面。</p>
+<p>总的来说我的理解就是，项目中海量缓存的内容存在c盘里，然后发送模块在发送的的时候通过文件映射的方式使用共享读来发送内容。所以不存在linux端的问题。<br>文件映射完成海量缓存过程<br>SetDefaultMassBuffer<br>CreateBufferFile ｛<br>    -&gt;判断是否为NTFS系统<br>    -&gt;createfile 创建/打开文件内核对象<br>    -&gt;createfilewithsize通过文件映射 创建一个指定大小的文件<br>    -&gt;createfilemapping 创建文件映射内核对象<br>｝</p>
+<h2 id="3-7"><a href="#3-7" class="headerlink" title="3.7"></a>3.7</h2><p>捣鼓winsnaplib.lib的编译中.</p>
+<h2 id="3-8"><a href="#3-8" class="headerlink" title="3.8"></a>3.8</h2><p>捣鼓winsnaplib.lib编译的第二天。<br>熟悉了recovery的过程。思考了下如何更改增量备份</p>
+<p>全恢复的过程：<br>begin_Recovert -&gt;[full,diff]-&gt; start()<br>-&gt; init(){<br>    init_queue()<br>    data_rebuild() 数据准备<br>    init_member_data()<br>    send_recovery_request()<br>    CreateThread( send_thread ) ==&gt; 主要在这里修改<br>    CreateThread( write_thread)</p>
+<pre><code>receive_packet 
+</code></pre><p>}</p>
+<h2 id="3-9"><a href="#3-9" class="headerlink" title="3.9"></a>3.9</h2><p>整理增量恢复和全恢复的代码，了解恢复的过程。<br>winsnaplib的问题依然棘手</p>
+<h2 id="3-10"><a href="#3-10" class="headerlink" title="3.10"></a>3.10</h2><p>今天看了一下项目中用来处理sendthread 和 receivethread 的互斥同步问题的 producerAndConsumer队列的实现。<br>准备开始修改增量备份的代码了，熟悉了一下传输信息的结构体。</p>
+<p>#3.13<br>时间过的是真的很快。<br>先mark一下，晚上健身房回来梳理一下今天遇到的坑。</p>
+<h1 id="3-27"><a href="#3-27" class="headerlink" title="3.27"></a>3.27</h1><p>隔了好久没有更新，因为一直被海量缓存的工作原理所困惑着。暂时先不在这里更新内容了，这里就先停了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/02/21/cdp/">实验室灾备项目CDP部分学习工作记录</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
+        <p><span>发布时间:</span>2017-02-21, 16:37:13</p>
+        <p><span>最后更新:</span>2017-03-27, 11:42:59</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/02/21/cdp/" title="实验室灾备项目CDP部分学习工作记录">http://meihualu233.github.io/2017/02/21/cdp/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2017/02/21/cdp/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/02/22/openssl/">
+                    openssl相关的坑
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/02/09/gs-life-4/">
+                    研究生生活-4
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-20"><span class="toc-number">1.</span> <span class="toc-text">2.20</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-21"><span class="toc-number">2.</span> <span class="toc-text">2.21</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-22"><span class="toc-number">3.</span> <span class="toc-text">2.22</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-23"><span class="toc-number">4.</span> <span class="toc-text">2.23</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-24"><span class="toc-number">5.</span> <span class="toc-text">2.24</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-27"><span class="toc-number">6.</span> <span class="toc-text">2.27</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-28"><span class="toc-number">7.</span> <span class="toc-text">2.28</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1"><span class="toc-number">8.</span> <span class="toc-text">3.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2"><span class="toc-number">9.</span> <span class="toc-text">3.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3"><span class="toc-number">10.</span> <span class="toc-text">3.3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6"><span class="toc-number">11.</span> <span class="toc-text">3.6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7"><span class="toc-number">12.</span> <span class="toc-text">3.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8"><span class="toc-number">13.</span> <span class="toc-text">3.8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9"><span class="toc-number">14.</span> <span class="toc-text">3.9</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-10"><span class="toc-number">15.</span> <span class="toc-text">3.10</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-27"><span class="toc-number"></span> <span class="toc-text">3.27</span></a>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"实验室灾备项目CDP部分学习工作记录　| Meihualu's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+</div>
+
+
+
+
+
+
+
+    
+        <div class="duoshuo" id="comments">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+		var cloudTieConfig = {
+  			url: document.location.href, 
+  			sourceId: "",
+  			productKey: "542eda49e3484702924144d8bd657a52",
+  			target: "cloud-tie-wrapper"
+		};
+		var yunManualLoad = true;
+		Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/02/22/openssl/" title="上一篇: openssl相关的坑">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/02/09/gs-life-4/" title="下一篇: 研究生生活-4">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/19/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/acm/">2017 ACM-ICPC World Finals</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/gs-life-5/">研究生活-5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/openssl/">openssl相关的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/cdp/">实验室灾备项目CDP部分学习工作记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/gs-life-4/">研究生生活-4</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/python-learning/">实验室培训之编码问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/python-smtp/">Python学习之SMTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/python-1/">Python解题报告合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/heartvoice/">心语</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/gs-life-3/">研究生生活-3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/travel-changsha/">16年国庆长沙玩耍记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/gs-life-2/">虚拟现实报告资料整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/gs-life/">研究生生活-1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 meihualu233< 蜀ICP备17019529号-1 >
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 11;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="meihualu233" />
+
+
+
+<meta name="description" content="开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。">
+<meta name="keywords" content="学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据挖掘课程笔记">
+<meta property="og:url" content="http://meihualu233.github.io/2016/09/26/datamining-1/index.html">
+<meta property="og:site_name" content="Meihualu&#39;s Blog">
+<meta property="og:description" content="开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-10-07T02:30:41.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据挖掘课程笔记">
+<meta name="twitter:description" content="开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Meihualu&#39;s Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>数据挖掘课程笔记 | Meihualu&#39;s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/face.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">meihualu233</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/meihualu233" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa bilibili" href="http://space.bilibili.com/9855612/#!/index" title="bilibili"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SMTP/">SMTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Virtualenv搭建/">Virtualenv搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习生活/">学习生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/寒假/">寒假</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心语/">心语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日常/">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/玩耍/">玩耍</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生活/">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/研究生生活/">研究生生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编码/">编码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">茫茫人生，好像荒野</div>
+                </section>
+                
+            </div>
+        </div>
+        <div class="xm">
+            <img src="/img/xm.png">
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">meihualu233</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/face.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">meihualu233</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/meihualu233" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                                <a class="fa bilibili" target="_blank" href="http://space.bilibili.com/9855612/#!/index" title="bilibili"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-datamining-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/26/datamining-1/" class="article-date">
+      <time datetime="2016-09-26T08:42:53.000Z" itemprop="datePublished">2016-09-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据挖掘课程笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/数据挖掘/">数据挖掘</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。</p>
+<a id="more"></a>
+<h2 id="Aprior算法"><a href="#Aprior算法" class="headerlink" title="Aprior算法"></a>Aprior算法</h2><p>这应该是第一个接触到的算法，是应用在挖掘类似超市购物篮商品数据时候的一种效率比较好的算法。下课自己网上差了点资料貌似除了可以用在消费市场价格分析，网络安全领域中的入侵检测技术，高校管理中数据挖掘技术还能有效的开展贫困助学工作。<br>关键词有：置信度、支持度<br>对于A -&gt; B<br>支持度：P(A交B)，既有A又有B的概率<br>置信度：P(B|A)=P(AB)/P(A),在A发生的同时发生B的概率</p>
+<p>候选集（Candidate itemset）：通过向下合并得出的项集。定义为C[k]。<br>频繁集（Frequent itemset）：支持度大于等于特定的最小支持度（Minimum Support/minsup）的项集。表示为L[k]。注意，频繁集的子集一定是频繁集。</p>
+<hr>
+<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><p>Apriori核心算法过程如下：<br>1.扫描数据库D计算出各个1项集的支持度，得到频繁1项集的集合。<br>2.连接步：为了生成，预先生成,由2个只有一个项不同的属于的频集做一个(k-2)JOIN运算得到的。<br>3.剪枝步：由于是的超集，所以可能有些元素不是频繁的。在潜在k项集的某个子集不是中的成员时,则该潜在频繁项集不可能是频繁的可以从中移去。<br>4.通过扫描数据库D，计算中各个项集的支持度，将中不满足支持度的项集去掉形成。<br>5.通过迭代循环,重复步骤2～4,直到有某个r值使得频繁集为空,这时算法停止。在剪枝步中的每个元素需在交易数据库中进行验证来决定其是否加入,这里的验证过程是算法性能的一个瓶颈。这个方法要求多次扫描可能很大的交易数据库。可能产生大量的候选集,以及可能需要重复扫描数据库,是Apriori算法的两大缺点。</p>
+<p>例子：</p>
+<blockquote>
+<p>计入有项目集合R={1,2,3,4,5}有事务集T：<br>1.{1,2,3}<br>2.{1,2,4}<br>3.{1,3,4}<br>4.{1,2,3,5}<br>5.{1,3,5}<br>6.{2,4,5}<br>7.{1,2,3,4}<br>设定minsup=3/7 minconf=5/7</p>
+<p>1,生成L1:{1}:7,{2}:5,{3}:5,{4}:4,{5}:3<br>2,根据L1生成C2：{1,2}:4,{1,3}:5,{1,4}:3,{1,5}:3,{2,3}:3,{2,4}:3,{2,5}:2,{3,4}:2,{3,5}:2,{4,5}:1<br>剪枝生成L2(不满足minsu&gt;=3/7剪掉):{1,2},{1,3},{1,4},{1,5},{2,3},{2,4}<br>进一步判断L2中得到的集合的子集是否在L1中得到最终的L2(这里并没有不符合要求的)<br>3,根据L2得到C3:{1,2,3}:3,{1,2,4}:2,{1,3,4}:2,{1,2,5}:1,{1,3,5}:2,{1,4,&gt;5}:0,{2,3,4}:1<br>剪枝得到L3(不满足置信度和子集没有在L2中的剪掉):{1,2,3}<br>4,根据L3得到的C4为 空 算法结束</p>
+<p>所以最终的所有的频繁项集(吐槽一下，我一直以为是平凡项集):L1并L2并L3,这&gt;个例子的结果就是{1},{2},{3},{4},{5},{1,2},{1,3},{1,4},{1,5},{2,3},{2,4&gt;},{1,2,3}</p>
+<p>接着根据这些项集生成强关联规则：<br>对于1-项集，貌似没得搞头<br>这里只考虑3-项集：{1,2,3}<br>{1,2} -&gt; {3} ,conf=3/4 &gt; 5/7<br>{1,3} -&gt; {2} ,conf=3/5 &lt; 5/7<br>{2,3} -&gt; {1} ,conf=3/3 &gt; 5/7<br>{1,3} -&gt; {2} 不满足要求</p>
+</blockquote>
+<p>挂一个自己写的C++代码，还没时间写先放着<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line"></div><div class="line">using namespace std;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
+        <p><span>发布时间:</span>2016-09-26, 16:42:53</p>
+        <p><span>最后更新:</span>2016-10-07, 10:30:41</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/26/datamining-1/" title="数据挖掘课程笔记">http://meihualu233.github.io/2016/09/26/datamining-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2016/09/26/datamining-1/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/10/07/travel-changsha/">
+                    16年国庆长沙玩耍记录
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/09/22/gs-life-2/">
+                    虚拟现实报告资料整理
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Aprior算法"><span class="toc-number">1.</span> <span class="toc-text">Aprior算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法步骤"><span class="toc-number">2.</span> <span class="toc-text">算法步骤</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"数据挖掘课程笔记　| Meihualu's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+</div>
+
+
+
+
+
+
+
+    
+        <div class="duoshuo" id="comments">
+	<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+	<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+	<script>
+		var cloudTieConfig = {
+  			url: document.location.href, 
+  			sourceId: "",
+  			productKey: "542eda49e3484702924144d8bd657a52",
+  			target: "cloud-tie-wrapper"
+		};
+		var yunManualLoad = true;
+		Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+	</script>
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/10/07/travel-changsha/" title="上一篇: 16年国庆长沙玩耍记录">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/09/22/gs-life-2/" title="下一篇: 虚拟现实报告资料整理">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/09/19/hello-world/">Hello World</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/26/acm/">2017 ACM-ICPC World Finals</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/02/gs-life-5/">研究生活-5</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/22/openssl/">openssl相关的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/21/cdp/">实验室灾备项目CDP部分学习工作记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/gs-life-4/">研究生生活-4</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/16/python-learning/">实验室培训之编码问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/26/python-smtp/">Python学习之SMTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/24/python-1/">Python解题报告合集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/18/heartvoice/">心语</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/gs-life-3/">研究生生活-3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/07/travel-changsha/">16年国庆长沙玩耍记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/gs-life-2/">虚拟现实报告资料整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/gs-life/">研究生生活-1</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2017 meihualu233< 蜀ICP备17019529号-1 >
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 11;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
