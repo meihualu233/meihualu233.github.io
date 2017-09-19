@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="Meihualu&#39;s Blog">
 <meta property="og:description" content="一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-19T08:11:49.361Z">
+<meta property="og:updated_time" content="2017-09-19T08:23:09.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式爬虫学习笔记-虚拟环境Virtualenv搭建">
 <meta name="twitter:description" content="一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。">
@@ -314,7 +314,9 @@
           
         <p>一直都想自己去学习一下爬虫，借慕课网出了分布式爬虫的课程的机会，就来跟着大神来学习一下分布式爬虫。今天踩了了一下virtualenv在windows上搭建的坑。就索性mark一下。<br><a id="more"></a></p>
 <h2 id="为什么要选择用Virtualenv"><a href="#为什么要选择用Virtualenv" class="headerlink" title="为什么要选择用Virtualenv"></a>为什么要选择用Virtualenv</h2><p>因为Python有2和3的区别，用Virtualenv可以使得开发环境隔离开不受到影响。暂时还没体验过这个的好处，但是我就是想把这个给配置好。</p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>安装Virtualenv，首先<br>‘’’<br>pip install virtualenv<br>‘’’<br>即可，可以使用一些比较快的镜像源，比如豆瓣源。不过貌似速度没多少区别（233）。<br>安装好了之后，可以自行定一个目录来搭建环境。<br>比如选择，把工程放在 E:/test/ 下，使用python2<br>就在cmd下进到这个目录,然后<br>‘’’<br>virtualenv -p <strong><em> xxx<br>‘’’<br>其中 </em></strong> 是你Python要用的版本（C:\Python27\python.exe）<br>xxx 是你取的虚拟环境所在的目录名字 </p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>安装Virtualenv，首先<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install virtualenv</div></pre></td></tr></table></figure></p>
+<p>即可，可以使用一些比较快的镜像源，比如豆瓣源。不过貌似速度没多少区别（233）。<br>安装好了之后，可以自行定一个目录来搭建环境。<br>比如选择，把工程放在 E:/test/ 下，使用python2<br>就在cmd下进到这个目录,然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">virtualenv -p *** xxx</div></pre></td></tr></table></figure></p>
+<p>其中 <em>*</em> 是你Python要用的版本（C:\Python27\python.exe）<br>xxx 是你取的虚拟环境所在的目录名字 </p>
 <hr>
 <p>好了下面说下问题，按照这样的步骤配置好后,可以在刚刚建立的目录中找到一个Scripts的文件里面应该有一个activate.bat。运行这个就能进入虚拟环境，但是<br>我木有，类似Stackoverflow上这个<a href="http://stackoverflow.com/questions/33010458/cannot-create-virtual-environment-with-setuptools-pip-wheel-failed-with-error-c" target="_blank" rel="external">问题</a></p>
 <p>解决方法也比较简单，就是你的python的安装路径中不要有空格和中文出现….</p>
@@ -331,7 +333,7 @@
         <p><span>本文标题:</span><a href="/2017/05/06/spider-1/">分布式爬虫学习笔记-虚拟环境Virtualenv搭建</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
         <p><span>发布时间:</span>2017-05-06, 18:13:42</p>
-        <p><span>最后更新:</span>2017-09-19, 16:11:49</p>
+        <p><span>最后更新:</span>2017-09-19, 16:23:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/06/spider-1/" title="分布式爬虫学习笔记-虚拟环境Virtualenv搭建">http://meihualu233.github.io/2017/05/06/spider-1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2017/05/06/spider-1/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

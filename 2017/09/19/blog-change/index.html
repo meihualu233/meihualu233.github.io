@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://oduatnee6.bkt.clouddn.com/ssh.png">
 <meta property="og:image" content="http://oduatnee6.bkt.clouddn.com/npm_error.png">
 <meta property="og:image" content="http://oduatnee6.bkt.clouddn.com/npm_warm.png">
-<meta property="og:updated_time" content="2017-09-19T08:17:58.989Z">
+<meta property="og:updated_time" content="2017-09-19T08:21:27.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Meihualu&#39;s Blog">
 <meta name="twitter:description" content="title: Windows下Hexo博客迁移到另一个系统date: 2017-09-19 14:05:47categories:  日常tags: 博客迁移   周末的时候给电脑配了个固态硬盘，然后把系统放到了固态上，所以原来系统上的一些东西就都乱了。原来搭好的这个博客也就需要进行一次迁移。">
@@ -299,17 +299,15 @@
 <hr>
 <p>周末的时候给电脑配了个固态硬盘，然后把系统放到了固态上，所以原来系统上的一些东西就都乱了。原来搭好的这个博客也就需要进行一次迁移。</p>
 <a id="more"></a>
-<h2 id="将博客从原来的系统迁移到新的系统"><a href="#将博客从原来的系统迁移到新的系统" class="headerlink" title="将博客从原来的系统迁移到新的系统"></a>将博客从原来的系统迁移到新的系统</h2><p>1.从Git官网上下载Git，然后需要生成新的密钥。具体做法就是，<br>‘’’<br>ssh-keygen -t rsa -C “youremail@example.com”<br>‘’’<br>生成的密钥文件默认在 C:|用户|系统用户|.ssh中，将其中id_rsa.pub的公钥导入到git上即可。<br><img src="http://oduatnee6.bkt.clouddn.com/key.png" alt="生成的密钥位置"><br><img src="http://oduatnee6.bkt.clouddn.com/ssh.png" alt="导入新的key"></p>
-<p>2.下载安装Node.js<br>3.打开git bash 安装Hexo<br>‘’’<br>npm install hexo-cli -g<br>‘’’</p>
-<p>4.下面就是重点了（特别感谢知乎上的<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">skycrown</a>，我百度到的方法）<br>拷贝原来博客目录下的 _config.yml ,theme/ ,source/,scaffolds/,package.json到新的目录，其他的内容就可以不要了。然后在拷贝的目录里,执行。<br>‘’’<br>npm install<br>‘’’<br>注：可能是我下载git bash有问题或者我的环境有问题，我直接在新的博客路径中右键打开git bash，npm 命令会报错 （bash: npm: command not found）<br>。在桌面邮件打开的git bash之后cd到博客路径下npm install就可以直接使用，如果有人出现相同的问题可以参考下。<br><img src="http://oduatnee6.bkt.clouddn.com/npm_error.png" alt="错误"></p>
+<h2 id="将博客从原来的系统迁移到新的系统"><a href="#将博客从原来的系统迁移到新的系统" class="headerlink" title="将博客从原来的系统迁移到新的系统"></a>将博客从原来的系统迁移到新的系统</h2><p>1.从Git官网上下载Git，然后需要生成新的密钥。具体做法就是，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</div></pre></td></tr></table></figure></p>
+<p>生成的密钥文件默认在 C:|用户|系统用户|.ssh中，将其中id_rsa.pub的公钥导入到git上即可。<br><img src="http://oduatnee6.bkt.clouddn.com/key.png" alt="生成的密钥位置"><br><img src="http://oduatnee6.bkt.clouddn.com/ssh.png" alt="导入新的key"></p>
+<p>2.下载安装Node.js<br>3.打开git bash 安装Hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-cli -g</div></pre></td></tr></table></figure></p>
+<p>4.下面就是重点了（特别感谢知乎上的<a href="https://www.zhihu.com/question/21193762" target="_blank" rel="external">skycrown</a>，我百度到的方法）<br>拷贝原来博客目录下的 _config.yml ,theme/ ,source/,scaffolds/,package.json到新的目录，其他的内容就可以不要了。然后在拷贝的目录里,执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>注：可能是我下载git bash有问题或者我的环境有问题，我直接在新的博客路径中右键打开git bash，npm 命令会报错 （bash: npm: command not found）<br>。在桌面邮件打开的git bash之后cd到博客路径下npm install就可以直接使用，如果有人出现相同的问题可以参考下。<br><img src="http://oduatnee6.bkt.clouddn.com/npm_error.png" alt="错误"></p>
 <p>注注：在输入完npm install 会出现这样的警告 this package is no longer maintained。不用慌张等一会就好了。<br><img src="http://oduatnee6.bkt.clouddn.com/npm_warm.png" alt="警告"></p>
 <p>5.装好后，直接hexo g | hexo d 就好了，和以前一样操作就好了</p>
-<p>6.但是发现了一个问题。我原来的博客置顶的内容错误了。原因是Hexo只支持按照时间排序，所以我以前修改过..\node_modules\hexo-generator-index\lib\generator.js中的内容，再次修改一下置顶功能就好了。<br>附一个我的generator.js增加置顶的配置.<br>‘’’<br>‘use strict’;</p>
-<p>var pagination = require(‘hexo-pagination’);</p>
-<p>module.exports = function(locals) {<br>  var config = this.config;<br>  var posts = locals.posts.sort(config.index_generator.order_by);</p>
-<p>  posts.data = posts.data.sort(function(a, b) {<br>        if(a.top &amp;&amp; b.top) { // 两篇文章top都有定义<br>            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排<br>            else return b.top - a.top; // 否则按照top值降序排<br>        }<br>        else if(a.top &amp;&amp; !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）<br>            return -1;<br>        }<br>        else if(!a.top &amp;&amp; b.top) {<br>            return 1;<br>        }<br>        else return b.date - a.date; // 都没定义按照文章日期降序排<br>    });<br>  var paginationDir = config.pagination_dir || ‘page’;<br>  var path = config.index_generator.path || ‘’;</p>
-<p>  return pagination(path, posts, {<br>    perPage: config.index_generator.per_page,<br>    layout: [‘index’, ‘archive’],<br>    format: paginationDir + ‘/%d/‘,<br>    data: {<br>      __index: true<br>    }<br>  });<br>};</p>
-<p>‘’’</p>
+<p>6.但是发现了一个问题。我原来的博客置顶的内容错误了。原因是Hexo只支持按照时间排序，所以我以前修改过..\node_modules\hexo-generator-index\lib\generator.js中的内容，再次修改一下置顶功能就好了。<br>附一个我的generator.js增加置顶的配置.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line"></div><div class="line">var pagination = require(&apos;hexo-pagination&apos;);</div><div class="line"></div><div class="line">module.exports = function(locals) &#123;</div><div class="line">  var config = this.config;</div><div class="line">  var posts = locals.posts.sort(config.index_generator.order_by);</div><div class="line"></div><div class="line">  posts.data = posts.data.sort(function(a, b) &#123;</div><div class="line">        if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义</div><div class="line">            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排</div><div class="line">            else return b.top - a.top; // 否则按照top值降序排</div><div class="line">        &#125;</div><div class="line">        else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</div><div class="line">            return -1;</div><div class="line">        &#125;</div><div class="line">        else if(!a.top &amp;&amp; b.top) &#123;</div><div class="line">            return 1;</div><div class="line">        &#125;</div><div class="line">        else return b.date - a.date; // 都没定义按照文章日期降序排</div><div class="line">    &#125;);</div><div class="line">  var paginationDir = config.pagination_dir || &apos;page&apos;;</div><div class="line">  var path = config.index_generator.path || &apos;&apos;;</div><div class="line"></div><div class="line">  return pagination(path, posts, &#123;</div><div class="line">    perPage: config.index_generator.per_page,</div><div class="line">    layout: [&apos;index&apos;, &apos;archive&apos;],</div><div class="line">    format: paginationDir + &apos;/%d/&apos;,</div><div class="line">    data: &#123;</div><div class="line">      __index: true</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>END.</p>
 
       
     </div>
@@ -321,7 +319,7 @@
         <p><span>本文标题:</span><a href="/2017/09/19/blog-change/"></a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
         <p><span>发布时间:</span>2017-09-19, 14:05:47</p>
-        <p><span>最后更新:</span>2017-09-19, 16:17:58</p>
+        <p><span>最后更新:</span>2017-09-19, 16:21:27</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/09/19/blog-change/" title="">http://meihualu233.github.io/2017/09/19/blog-change/</a>
             <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2017/09/19/blog-change/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
