@@ -15,18 +15,21 @@
 
 
 
-<meta name="description" content="开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。">
-<meta name="keywords" content="学习">
+<meta name="description" content="找到一个刷题的小网站，决定好好学习一下DP。">
+<meta name="keywords" content="动态规划,学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据挖掘课程笔记">
-<meta property="og:url" content="http://meihualu233.github.io/2016/09/26/datamining-1/index.html">
+<meta property="og:title" content="HR刷题记录(DP)">
+<meta property="og:url" content="http://meihualu233.github.io/2017/11/13/HackRanker-Study/index.html">
 <meta property="og:site_name" content="Meihualu&#39;s Blog">
-<meta property="og:description" content="开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。">
+<meta property="og:description" content="找到一个刷题的小网站，决定好好学习一下DP。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-10-07T02:30:41.787Z">
+<meta property="og:image" content="https://www.hackerrank.com/challenges/equal/problem">
+<meta property="og:image" content="https://www.hackerrank.com/challenges/sherlock-and-cost/problem">
+<meta property="og:updated_time" content="2017-11-13T03:27:36.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据挖掘课程笔记">
-<meta name="twitter:description" content="开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。">
+<meta name="twitter:title" content="HR刷题记录(DP)">
+<meta name="twitter:description" content="找到一个刷题的小网站，决定好好学习一下DP。">
+<meta name="twitter:image" content="https://www.hackerrank.com/challenges/equal/problem">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +61,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>数据挖掘课程笔记 | Meihualu&#39;s Blog</title>
+<title>HR刷题记录(DP) | Meihualu&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +271,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-datamining-1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-HackRanker-Study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/09/26/datamining-1/" class="article-date">
-      <time datetime="2016-09-26T08:42:53.000Z" itemprop="datePublished">2016-09-26</time>
+      <a href="/2017/11/13/HackRanker-Study/" class="article-date">
+      <time datetime="2017-11-13T03:03:41.000Z" itemprop="datePublished">2017-11-13</time>
 </a>
 
 
@@ -287,7 +290,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      数据挖掘课程笔记
+      HR刷题记录(DP)
     </h1>
   
 
@@ -296,13 +299,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/数据挖掘/">数据挖掘</a>
+    <a class="article-category-link" href="/categories/学习/">学习</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/动态规划/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,21 +315,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>开个坑，记点数据挖掘学的算法，没准就能用上呢。实验室网太渣了，就都是些自己理解的话记录的，错的地方以后改正。</p>
-<a id="more"></a>
-<h2 id="Aprior算法"><a href="#Aprior算法" class="headerlink" title="Aprior算法"></a>Aprior算法</h2><p>这应该是第一个接触到的算法，是应用在挖掘类似超市购物篮商品数据时候的一种效率比较好的算法。下课自己网上差了点资料貌似除了可以用在消费市场价格分析，网络安全领域中的入侵检测技术，高校管理中数据挖掘技术还能有效的开展贫困助学工作。<br>关键词有：置信度、支持度<br>对于A -&gt; B<br>支持度：P(A交B)，既有A又有B的概率<br>置信度：P(B|A)=P(AB)/P(A),在A发生的同时发生B的概率</p>
-<p>候选集（Candidate itemset）：通过向下合并得出的项集。定义为C[k]。<br>频繁集（Frequent itemset）：支持度大于等于特定的最小支持度（Minimum Support/minsup）的项集。表示为L[k]。注意，频繁集的子集一定是频繁集。</p>
+        <p>找到一个刷题的小网站，决定好好学习一下DP。<br><a id="more"></a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://www.hackerrank.com/challenges/equal/problem" alt="Equal"></h2><p>题目大意：n堆糖果，每次可以选择一堆不增加（增加的糖果为1、2、5），问最少多少次可以让所有糖果一样多。<br>解法：除了一堆不增加等价于每次减少一堆的糖果，最终状态为使得所有糖果的数量相同。<br>问题的关键集中在 如何选择最终的状态。如果只选择让糖果变成所有糖果最少的可能会出现问题。<br>例如<br>1 5 5<br>选择最终状态为1 1 1 需要 4步</p>
+<h2 id="选择-0-0-0-为-3步"><a href="#选择-0-0-0-为-3步" class="headerlink" title="选择 0 0 0 为 3步"></a>选择 0 0 0 为 3步</h2><p>由经验可以猜测最终状态为｛min,min-1,min-2,min-3,min-4｝中的一个<br>证明： 假设 最终状态为min-5或者更小,原来的糖果数目为 {min,min+k1,min+k2,…..min+kn}</p>
+<p>min-5 到 min 最少需要 1步 ，到 其他不同的堆需要的步数肯定大于等于2<br>相比较于<br>min   到 min 最少需要 0步 ，到 其他不同的堆需要的步数可能为1步<br>所以 min 肯定优于 min-5</p>
+<h2 id="矛盾-，所以只要判断｛min-min-1-min-2-min-3-min-4｝中哪种情况最优即可。"><a href="#矛盾-，所以只要判断｛min-min-1-min-2-min-3-min-4｝中哪种情况最优即可。" class="headerlink" title="矛盾 ，所以只要判断｛min,min-1,min-2,min-3,min-4｝中哪种情况最优即可。"></a>矛盾 ，所以只要判断｛min,min-1,min-2,min-3,min-4｝中哪种情况最优即可。</h2><p>计算方法：<br>1.可以参考 上楼梯 的DP，即从 min 到 目标点 每次有3中 选择（1、2、5）。<br>2.可以用贪心  尽量走大步子 ，大步子不行用小步子 ，即 res = (target-start)/5 + (targrt-start)%5/2 +(target-start)%5%2 ;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#include &lt;cmath&gt;</div><div class="line">#include &lt;cstdio&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;algorithm&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int cas,a[100005],tmin,n;</div><div class="line">int sum[5];</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	cin&gt;&gt;cas;</div><div class="line">	while(cas--)</div><div class="line">	&#123;</div><div class="line">		cin&gt;&gt;n;</div><div class="line">		for(int i=0;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i];</div><div class="line">			a[i] = a[i]+5;</div><div class="line">		&#125;</div><div class="line">		sort(a,a+n);</div><div class="line">		tmin = a[0];</div><div class="line">		memset(sum,0,sizeof(sum));</div><div class="line">		int res = 9999999999;</div><div class="line">		for(int i=0;i&lt;5;i++)</div><div class="line">		&#123;</div><div class="line">			int t = tmin-i;</div><div class="line">			for(int j=0;j&lt;n;j++)</div><div class="line">			&#123;</div><div class="line">				sum[i]+= (a[j]-t)/5 + (a[j]-t)%5/2 + (a[j]-t)%5%2 ;</div><div class="line">			&#125;</div><div class="line">			res = min(res,sum[i]);</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;res&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
-<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><p>Apriori核心算法过程如下：<br>1.扫描数据库D计算出各个1项集的支持度，得到频繁1项集的集合。<br>2.连接步：为了生成，预先生成,由2个只有一个项不同的属于的频集做一个(k-2)JOIN运算得到的。<br>3.剪枝步：由于是的超集，所以可能有些元素不是频繁的。在潜在k项集的某个子集不是中的成员时,则该潜在频繁项集不可能是频繁的可以从中移去。<br>4.通过扫描数据库D，计算中各个项集的支持度，将中不满足支持度的项集去掉形成。<br>5.通过迭代循环,重复步骤2～4,直到有某个r值使得频繁集为空,这时算法停止。在剪枝步中的每个元素需在交易数据库中进行验证来决定其是否加入,这里的验证过程是算法性能的一个瓶颈。这个方法要求多次扫描可能很大的交易数据库。可能产生大量的候选集,以及可能需要重复扫描数据库,是Apriori算法的两大缺点。</p>
-<p>例子：</p>
-<blockquote>
-<p>计入有项目集合R={1,2,3,4,5}有事务集T：<br>1.{1,2,3}<br>2.{1,2,4}<br>3.{1,3,4}<br>4.{1,2,3,5}<br>5.{1,3,5}<br>6.{2,4,5}<br>7.{1,2,3,4}<br>设定minsup=3/7 minconf=5/7</p>
-<p>1,生成L1:{1}:7,{2}:5,{3}:5,{4}:4,{5}:3<br>2,根据L1生成C2：{1,2}:4,{1,3}:5,{1,4}:3,{1,5}:3,{2,3}:3,{2,4}:3,{2,5}:2,{3,4}:2,{3,5}:2,{4,5}:1<br>剪枝生成L2(不满足minsu&gt;=3/7剪掉):{1,2},{1,3},{1,4},{1,5},{2,3},{2,4}<br>进一步判断L2中得到的集合的子集是否在L1中得到最终的L2(这里并没有不符合要求的)<br>3,根据L2得到C3:{1,2,3}:3,{1,2,4}:2,{1,3,4}:2,{1,2,5}:1,{1,3,5}:2,{1,4,&gt;5}:0,{2,3,4}:1<br>剪枝得到L3(不满足置信度和子集没有在L2中的剪掉):{1,2,3}<br>4,根据L3得到的C4为 空 算法结束</p>
-<p>所以最终的所有的频繁项集(吐槽一下，我一直以为是平凡项集):L1并L2并L3,这&gt;个例子的结果就是{1},{2},{3},{4},{5},{1,2},{1,3},{1,4},{1,5},{2,3},{2,4&gt;},{1,2,3}</p>
-<p>接着根据这些项集生成强关联规则：<br>对于1-项集，貌似没得搞头<br>这里只考虑3-项集：{1,2,3}<br>{1,2} -&gt; {3} ,conf=3/4 &gt; 5/7<br>{1,3} -&gt; {2} ,conf=3/5 &lt; 5/7<br>{2,3} -&gt; {1} ,conf=3/3 &gt; 5/7<br>{1,3} -&gt; {2} 不满足要求</p>
-</blockquote>
-<p>挂一个自己写的C++代码，还没时间写先放着<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line"></div><div class="line">using namespace std;</div></pre></td></tr></table></figure></p>
-
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="https://www.hackerrank.com/challenges/sherlock-and-cost/problem" alt="Sherlock and Cost"></h2><p>题目大意:一个数列An，构造一个新的数列Bn(满足1&lt;=Bi&lt;=Ai),使得 sum( |b[i+1]-b[i]| )(1&lt;=i&lt;=n)最大。<br>解法:<br>1.找最优子结构,设dp[n][0]表示前n个数字的最优情况，且第n个数字选为1，dp[n][1]表示前n个数字在第n个数字选择max的情况下的最优情况。<br>2.状态转移为 dp[n+1][0] = max( dp[n][0] + 1 - 1  ,  dp[n][1]+abs(a[n]-1))<br>            dp[n+1][1] = max( dp[n][0]+abs(a[n+1]-1) , dp[n][1]+abs(a[n+1]-a[n]))<br>3.边界条件 为0 ，结果为 max(dp[n-1][0],dp[n-1][1])</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#include &lt;cmath&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;algorithm&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">using namespace std;</div><div class="line"></div><div class="line">long long dp[100005][2];</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	//freopen(&quot;in.in&quot;,&quot;r&quot;,stdin);</div><div class="line">	//freopen(&quot;out.txt&quot;,&quot;w&quot;,stdout);</div><div class="line">	int cas,n,a[100005],j;</div><div class="line">	</div><div class="line">	cin&gt;&gt;cas;</div><div class="line">	while(cas--)</div><div class="line">	&#123;</div><div class="line">		cin&gt;&gt;n;</div><div class="line">		for(int i=0;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			cin&gt;&gt;a[i];</div><div class="line">		&#125;</div><div class="line">		memset(dp,0,sizeof(dp));</div><div class="line">		for(int i=1;i&lt;n;i++)</div><div class="line">		&#123;</div><div class="line">			dp[i][0] = max(dp[i-1][0],dp[i-1][1]+abs(a[i-1]-1));</div><div class="line">			dp[i][1] = max(dp[i-1][0]+a[i]-1,dp[i-1][1]+abs(a[i]-a[i-1]));</div><div class="line">		&#125;</div><div class="line">		cout&lt;&lt;max(dp[n-1][0],dp[n-1][1])&lt;&lt;endl;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	//fclose(stdin);</div><div class="line">	//fclose(stdout);</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -334,13 +331,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/09/26/datamining-1/">数据挖掘课程笔记</a></p>
+        <p><span>本文标题:</span><a href="/2017/11/13/HackRanker-Study/">HR刷题记录(DP)</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">meihualu233</a></p>
-        <p><span>发布时间:</span>2016-09-26, 16:42:53</p>
-        <p><span>最后更新:</span>2016-10-07, 10:30:41</p>
+        <p><span>发布时间:</span>2017-11-13, 11:03:41</p>
+        <p><span>最后更新:</span>2017-11-13, 11:27:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/09/26/datamining-1/" title="数据挖掘课程笔记">http://meihualu233.github.io/2016/09/26/datamining-1/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2016/09/26/datamining-1/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/11/13/HackRanker-Study/" title="HR刷题记录(DP)">http://meihualu233.github.io/2017/11/13/HackRanker-Study/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://meihualu233.github.io/2017/11/13/HackRanker-Study/　　作者: meihualu233" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -352,16 +349,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/10/07/travel-changsha/">
-                    16年国庆长沙玩耍记录
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/09/22/gs-life-2/">
-                    虚拟现实报告资料整理
+                <a href="/2017/09/19/blog-change/">
+                    Windows下Hexo博客迁移到另一个系统
                 </a>
             </div>
         
@@ -373,7 +364,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Aprior算法"><span class="toc-number">1.</span> <span class="toc-text">Aprior算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#算法步骤"><span class="toc-number">2.</span> <span class="toc-text">算法步骤</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择-0-0-0-为-3步"><span class="toc-number">2.</span> <span class="toc-text">选择 0 0 0 为 3步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#矛盾-，所以只要判断｛min-min-1-min-2-min-3-min-4｝中哪种情况最优即可。"><span class="toc-number">3.</span> <span class="toc-text">矛盾 ，所以只要判断｛min,min-1,min-2,min-3,min-4｝中哪种情况最优即可。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">4.</span> <span class="toc-text"></span></a></li></ol>
         
     </div>
     <style>
@@ -408,7 +399,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"数据挖掘课程笔记　| Meihualu's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"HR刷题记录(DP)　| Meihualu's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
 </div>
 
@@ -440,15 +431,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/10/07/travel-changsha/" title="上一篇: 16年国庆长沙玩耍记录">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/09/22/gs-life-2/" title="下一篇: 虚拟现实报告资料整理">
+            <a href="/2017/09/19/blog-change/" title="下一篇: Windows下Hexo博客迁移到另一个系统">
                 <i class="fa fa-angle-right"></i>
             </a>
         
