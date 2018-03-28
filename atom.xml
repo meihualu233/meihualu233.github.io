@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://meihualu233.github.io/"/>
-  <updated>2017-12-05T09:25:37.833Z</updated>
+  <updated>2018-03-28T02:58:11.398Z</updated>
   <id>http://meihualu233.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博弈论 SG函数</title>
+    <link href="http://meihualu233.github.io/2018/03/28/sg/"/>
+    <id>http://meihualu233.github.io/2018/03/28/sg/</id>
+    <published>2018-03-28T01:56:05.000Z</published>
+    <updated>2018-03-28T02:58:11.398Z</updated>
+    
+    <content type="html"><![CDATA[<p> 以前学过几种博弈，感觉最厉害的就是SG函数了，前几个星期学过这玩意，今天突然发现记得不清楚了，索性整理一下。<br><a id="more"></a></p><h2 id="必胜点和必败点"><a href="#必胜点和必败点" class="headerlink" title="必胜点和必败点"></a>必胜点和必败点</h2><p>一般来说做简单的博弈问题，用一下必败点和必胜点的原理就可以找到规律了。<br>必败点就是指无论怎么操作肯定gg的状态。<br>必胜点就是你只要不傻肯定能win的状态。</p><p>必败点的下一次操作的状态一定是必胜点。<br>必胜点的下一次操作中肯定有一个状态是必败点。</p><p>举个例子：<br>n个石子，两个人轮流抓，每次要么抓1个要么抓2个，最后抓完的人胜利。<br>分析先抓的人的情况：<br>对于n=1、2，这是一个必胜点，先抓的肯定赢<br>对于n=3，职务是必败点。<br>n 1 2 3 4 5 6 7<br>  n n p n n p n<br>以此类推变能发现规律.</p><p>例题：hdu 1847 2147</p><p>##SG函数<br>首先定义mex(minimal excludant)运算，这是施加于一个集合的运算，表示最小的不属于这<br>个集合的非负整数。例如mex{0,1,2,4}=3、mex{2,3,5}=0、mex{}=0。</p><p>对于任意状态x,定义SG(x)=mex(S)其中S是x后继状态的SG函数值的集合。<br>如x有三个后继状态分别为SG(a),SG(b),SG(c)，那么SG(x) = mex{SG(a),SG(b),SG(c)}。</p><p>SG(x) =0,当且仅当x为必败点时。</p><p>还是上面的例子，我们来求一下不同n的sg函数。<br>sg[0]=0<br>n = 1 , 可以取走 1 -{1} 个石子，剩余{0}个 ，sg[1] =mex( sg(0) ) = mex(0) =1<br>n = 2 , 可以取走 2-{1,2}个石子,剩余{0,1}个, sg[2] =mex(sg(0),sg(1)) = mex(0,1)=2<br>n = 3 , 可以取走3-{1,2}个石子，剩余(1,2)个，sg[3]=mex(sg(1),sg(2)) =mex(1,2) =0<br>依此类推<br>和上面的结果一样。</p><p>几个结论：<br>1.可选步数为1~m的连续整数，直接取模即可，SG(x) = x % (m+1);<br>2.可选步数为任意步，SG(x) = x；（NIM博弈）<br>3.可选步数为一系列不一定连续的数，递推处理。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt; 以前学过几种博弈，感觉最厉害的就是SG函数了，前几个星期学过这玩意，今天突然发现记得不清楚了，索性整理一下。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="http://meihualu233.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>HR刷题记录(DP)</title>
@@ -34,9 +54,9 @@
       <category term="学习" scheme="http://meihualu233.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="学习" scheme="http://meihualu233.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="动态规划" scheme="http://meihualu233.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="学习" scheme="http://meihualu233.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -181,32 +201,6 @@
     
     
       <category term="学习" scheme="http://meihualu233.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>研究生生活-4</title>
-    <link href="http://meihualu233.github.io/2017/02/09/gs-life-4/"/>
-    <id>http://meihualu233.github.io/2017/02/09/gs-life-4/</id>
-    <published>2017-02-09T03:11:42.000Z</published>
-    <updated>2017-06-15T03:49:30.955Z</updated>
-    
-    <content type="html"><![CDATA[<p>1月22号开始的寒假生活，其实早在1月14号就考完放假了。<br>这个窝也隔了好久没写东西。<br>今天是2月9号，研一下的生活就要开始了。<br><a id="more"></a></p><p>说实话，不知道该写些什么了。一种肚子里有很多话，但是就是不知道该怎么表达的感觉。那就简单点来把失踪了这几个月发生的事情梳理下吧。<br>应该是从去年（16年）11月中旬开始消失的，消失的主要原因是因为我谈恋爱了。果真爱情容易叫人沉迷（无奈脸），然后就是很开心的谈恋爱咯，知道今年（17年）1月21号分手了。不想写太多的文字来回忆这段恋情，结束了就让他结束掉吧。最好的方式或许就是不要见。<br>短时间内，不想去谈恋爱了。感觉自己还不够成熟，还有很多问题没有搞明白。</p><hr><p>然后说说寒假，寒假没回南京过年。今年跑到西双版纳来过冬，昆明这里确实暖和空气也好很多。蓝天白云，星星月亮，还有久违的花蝴蝶。让我都出现了一种想在这里直接安度晚年的想法，然后我摇着自己的脑袋告诉自己：“快醒醒吧，你现在还没有工作，没房没车。快滚去学习吧”于是乎，我就吓的去睡觉了。。。（还是寒假嘛~）</p><hr><p>当然这并不代表我寒假没有好好学习，我还是稍微努力的写了一篇论文做了点题目，看了些前沿科技的。。微不足道，不过我坚信未来这些做的都会有回报。</p><hr><p>锻炼上的事情确实是坚持下来了，整个寒假就这点我能骄傲自豪的说：“我没胖~”（+ +|）但是我寒假目标就是为了变重啊。。现在还是保持着68kg，何时才能长出结实的肌肉和迷人的腹肌呢。不知道哇，反正健身大业是现在我唯一做的最好的事情了。</p><hr><p>开学了，估计班级上会有一些杂事要做，实验室项目组里的事情肯定也会多起来，新的一学期幸好还有我自己陪着我自己，要好好努力哦。<br>PS：新年、新学期愿望，我要学会折纸！练出4快腹肌（8块最好）！变重变重！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1月22号开始的寒假生活，其实早在1月14号就考完放假了。&lt;br&gt;这个窝也隔了好久没写东西。&lt;br&gt;今天是2月9号，研一下的生活就要开始了。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="http://meihualu233.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="日常" scheme="http://meihualu233.github.io/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-      <category term="随笔" scheme="http://meihualu233.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-      <category term="寒假" scheme="http://meihualu233.github.io/tags/%E5%AF%92%E5%81%87/"/>
     
   </entry>
   
